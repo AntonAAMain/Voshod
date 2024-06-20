@@ -91,12 +91,16 @@
 }
 
 .viewBtn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
   opacity: 0;
   font-weight: 700 !important;
   border-radius: 10px;
   transition: 0.5s opacity !important;
+}
+
+.viewBtnWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 1;
 }

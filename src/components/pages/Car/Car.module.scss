@@ -47,3 +47,21 @@
   gap: 10px;
   list-style-type: none;
 }
+
+.emptyPhoto {
+  position: relative;
+  font-weight: 600;
+  font-size: 22px;
+  align-self: center;
+}
+
+.backBtn {
+  position: relative !important;
+  font-weight: 600 !important;
+  width: 100px !important;
+}
+
+.link {
+  align-self: center;
+  margin-top: 100px;
+}

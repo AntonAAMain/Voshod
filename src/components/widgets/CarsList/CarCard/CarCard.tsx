@@ -14,7 +14,7 @@ export const CarCard = ({ car }: Props) => {
 
   return (
     <div className={cls.container}>
-      <Link href={`/car/${car.id}`} passHref>
+      <Link href={`/car/${car.id}`} passHref className={cls.viewBtnWrapper}>
         <Button className={cls.viewBtn} variant="contained" color="primary">
           Просмотр
         </Button>

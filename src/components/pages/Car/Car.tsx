@@ -8,6 +8,8 @@ import { strict } from "assert";
 import { apiBase } from "@/shared/http";
 import { Slider } from "./Slider/Slider";
 import cn from "classnames";
+import { Button } from "@mui/material";
+import Link from "next/link";
 
 interface Props {
   id: string;
@@ -38,19 +40,28 @@ export const CarPage = ({ id }: Props) => {
             {car.brand} {car.model} - {`${car.price / 1000000} млн ₽`}
           </div>
           <Slider images={car.images} />
-
+          {(car.images?.length === 0 || car.images === null) && (
+            <div className={cls.emptyPhoto}> Фото в каталоге </div>
+          )}
           {car?.number && (
             <div className={cls.number}>Рег. номер: {car.number}</div>
           )}
-          <div className={cls.tarif}>
-            <div className={cls.tarifName}>Тариф:</div>
+          {car.tarif.length > 0 && (
+            <div className={cls.tarif}>
+              <div className={cls.tarifName}>Тариф:</div>
 
-            <ul className={cls.tarifList}>
-              {car.tarif.map((tarif) => (
-                <li key={tarif}>- {tarif}</li>
-              ))}
-            </ul>
-          </div>
+              <ul className={cls.tarifList}>
+                {car.tarif.map((tarif) => (
+                  <li key={tarif}>- {tarif}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          <Link href={"/"} passHref className={cls.link}>
+            <Button className={cls.backBtn} variant="contained" color="primary">
+              Назад
+            </Button>
+          </Link>
         </>
       )}
     </div>
