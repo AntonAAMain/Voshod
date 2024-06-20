@@ -1,0 +1,49 @@
+.container {
+  margin: 60px auto;
+  position: relative;
+  width: max-content;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  opacity: 1;
+  transition: 0.5s opacity;
+}
+
+.container_hidden {
+  opacity: 0;
+}
+
+.name {
+  font-weight: 700;
+  font-size: 20px;
+  align-self: center;
+}
+
+.number {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.tarif {
+  //   font-weight: 600;
+  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  gap: 20px;
+  align-self: center;
+}
+
+.tarifName {
+  font-weight: 600;
+}
+
+.tarifList {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style-type: none;
+}

@@ -1,0 +1,38 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  box-shadow: 0px 2px 4px 0.5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+}
+
+.title {
+  position: relative;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  font-weight: 600 !important;
+}
+
+.emptyText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-weight: 300;
+}

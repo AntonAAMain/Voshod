@@ -1,4 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  images: {
+    formats: ["image/webp"],
 
-module.exports = nextConfig
+    domains: ["test.taxivoshod.ru"],
+  },
+};
+
+module.exports = nextConfig;

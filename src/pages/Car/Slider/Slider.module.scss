@@ -1,0 +1,54 @@
+.container {
+  position: relative;
+  width: max-content;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.image {
+  position: relative;
+  opacity: 0;
+  transition: 0.6s opacity;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.image_active {
+  opacity: 1;
+}
+
+.photo {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  box-shadow: 0px 2px 4px 0.5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.imageWrapper {
+  position: absolute;
+  border-radius: 18px !important;
+  width: 172px;
+  align-self: center;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  height: 163px;
+}
+
+.buttons {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.button {
+  border-radius: 50% !important;
+  width: 45px !important;
+  height: 45px !important;
+  min-width: 0 !important;
+}

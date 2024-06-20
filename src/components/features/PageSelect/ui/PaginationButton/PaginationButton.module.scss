@@ -1,0 +1,34 @@
+.container {
+  position: relative;
+  width: 30px;
+  height: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.35s background;
+  border-radius: 50%;
+
+  opacity: 0.4;
+
+  &:hover {
+    background: rgb(232, 225, 225);
+  }
+}
+
+// #a7b1bc not active
+// #212b36 active
+
+.left {
+  transform: rotate(180deg);
+}
+
+.img {
+  width: 14px;
+  height: 14px;
+  position: relative;
+}
+
+.container_active {
+  opacity: 1;
+}

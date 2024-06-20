@@ -1,0 +1,17 @@
+.container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+
+  // border: 2px solid green;
+  width: 1000px;
+  min-height: 1000px;
+  align-self: center;
+  opacity: 1;
+  transition: 0.5s opacity;
+}
+
+.container_hidden {
+  opacity: 0;
+}
