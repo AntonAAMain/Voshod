@@ -2,8 +2,8 @@
   padding: 30px;
   width: max-content;
   display: flex;
-  flex-direction: row;
-  gap: 50px;
+  flex-direction: column;
+  gap: 20px;
 
   @media screen and (max-width: 1200px) {
     width: 740px;

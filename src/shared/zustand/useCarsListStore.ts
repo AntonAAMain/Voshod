@@ -19,9 +19,9 @@ interface StoreState {
   models: string[];
   fares: string[];
 
-  handleBrands: (value: ICarBrand) => void;
-  handleModels: (value: string) => void;
-  handleFares: (value: string) => void;
+  handleBrands: (value: string[]) => void;
+  handleModels: (value: string[]) => void;
+  handleFares: (value: string[]) => void;
 
   cars: ICar[];
 
@@ -109,19 +109,19 @@ export const useCarsListStore = create<StoreState>()(
         });
     },
 
-    handleBrands: (value: ICarBrand) => {
-      if (value === ICarBrand.Все)
+    handleBrands: (value: string[]) => {
+      if (
+        !get().brands.includes(ICarBrand.Все) &&
+        value.includes(ICarBrand.Все)
+      ) {
         set((state) => {
           state.brands = [ICarBrand.Все];
         });
-      else {
+      } else {
         set((state) => {
-          state.brands = get().brands.filter(
-            (brand) => brand !== ICarBrand.Все
-          );
-          if (get().brands.includes(value)) {
-            state.brands = get().brands.filter((brand) => brand !== value);
-          } else state.brands.push(value);
+          state.brands = value.filter(
+            (item) => item !== ICarBrand.Все
+          ) as ICarBrand[];
         });
       }
 
@@ -141,29 +141,25 @@ export const useCarsListStore = create<StoreState>()(
       get().setDirectPage(1);
     },
 
-    handleFares: (value: string) => {
-      set((state) => {
-        state.fares = get().fares.filter((fare) => fare !== "Все");
-        if (get().fares.includes(value))
-          state.fares = get().fares.filter((fare) => fare !== value);
-        else state.fares.push(value);
-      });
-
-      if (value === "Все" || get().fares.length === 0) {
+    handleFares: (value: string[]) => {
+      if (!get().fares.includes("Все") && value.includes("Все")) {
         set((state) => {
           state.fares = ["Все"];
         });
+      } else {
+        set((state) => {
+          state.fares = value.filter((item) => item !== "Все");
+        });
       }
+
       setTarifsToLS(get().fares);
 
       get().setDirectPage(1);
     },
 
-    handleModels: (value: string) => {
+    handleModels: (value: string[]) => {
       set((state) => {
-        if (get().models.includes(value))
-          state.models = get().models.filter((model) => model !== value);
-        else state.models.push(value);
+        state.models = value;
       });
 
       setModelsToLS(get().models);

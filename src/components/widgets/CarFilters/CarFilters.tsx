@@ -12,6 +12,7 @@ import { useEffect } from "react";
 import { Selecting } from "./Selecting/Selecting";
 
 import cls from "./CarFilters.module.scss";
+import { MuiSelect } from "@/components/ui/MuiSelect/MuiSelect";
 
 export const CarFilters = () => {
   const {
@@ -30,25 +31,36 @@ export const CarFilters = () => {
 
   return (
     <div className={cls.container}>
-      <Selecting<ICarBrand>
-        allButtons={allCarsBrands}
-        activeButtons={brands}
-        onClick={handleBrands}
-        title="Марки"
+      <MuiSelect
+        onChange={handleBrands}
+        values={allCarsBrands}
+        names={allCarsBrands}
+        current={brands}
+        label="Марки"
       />
 
-      <Selecting<string>
-        allButtons={filterModelsByBrand(brands)}
-        activeButtons={models}
-        onClick={handleModels}
-        title="Модели"
+      <MuiSelect
+        onChange={handleModels}
+        values={
+          brands.includes(ICarBrand.Все)
+            ? filterModelsByBrand(allCarsBrands)
+            : filterModelsByBrand(brands)
+        }
+        names={
+          brands.includes(ICarBrand.Все)
+            ? filterModelsByBrand(allCarsBrands)
+            : filterModelsByBrand(brands)
+        }
+        current={models}
+        label="Модели"
       />
 
-      <Selecting<string>
-        allButtons={carFaresNames}
-        activeButtons={fares}
-        onClick={handleFares}
-        title="Тарифы"
+      <MuiSelect
+        onChange={handleFares}
+        values={carFaresNames}
+        names={carFaresNames}
+        current={fares}
+        label="Тариф"
       />
     </div>
   );
