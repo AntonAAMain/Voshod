@@ -1,4 +1,4 @@
-import { CarPage } from "@/pages/Car/Car";
+import { CarPage } from "@/components/pages/Car/Car";
 
 interface Props {
   params: { id: string };

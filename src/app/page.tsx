@@ -7,8 +7,6 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <main className={styles.main}>
-      <h1>Автопарк Восход</h1>
-
       <CarFilters />
       <CarsList />
       <Pagination />

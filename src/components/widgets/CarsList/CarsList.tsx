@@ -15,7 +15,7 @@ export const CarsList = () => {
         <CarCard key={car.id} car={car} />
       ))}
 
-      {cars.length === 0 && (
+      {cars.length === 0 && !isLoading && (
         <div className={cls.emptyResult}>Нет машин по вашему запросу</div>
       )}
     </div>

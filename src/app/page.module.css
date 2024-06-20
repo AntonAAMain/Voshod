@@ -1,9 +1,9 @@
 .main {
   position: relative;
-  /* border: 2px solid green; */
   width: max-content;
-  margin: 60px auto;
   display: flex;
   flex-direction: column;
   gap: 40px;
+  align-items: center;
+  margin-bottom: 100px;
 }
