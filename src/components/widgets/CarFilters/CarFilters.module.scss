@@ -4,6 +4,19 @@
   display: flex;
   flex-direction: row;
   gap: 50px;
+
+  @media screen and (max-width: 1200px) {
+    width: 740px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 400px;
+    flex-direction: column;
+  }
 }
 
 .select {

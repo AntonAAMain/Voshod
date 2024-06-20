@@ -5,10 +5,19 @@
   gap: 70px;
   width: max-content;
   min-height: 600px;
+  transition: 0.7s opacity;
+
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: 300px 300px;
+  }
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 300px;
+  }
 }
 
 .container_hidden {
-  // opacity: 0;
+  opacity: 0;
 }
 
 .emptyResult {

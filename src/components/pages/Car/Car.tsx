@@ -1,15 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import cls from "./Car.module.scss";
 import { ICar } from "@/shared/types";
-import axios from "axios";
-import { strict } from "assert";
 import { apiBase } from "@/shared/http";
-import { Slider } from "./Slider/Slider";
 import cn from "classnames";
 import { Button } from "@mui/material";
 import Link from "next/link";
+
+import cls from "./Car.module.scss";
+import { Slider } from "@/components/widgets/Slider/Slider";
 
 interface Props {
   id: string;

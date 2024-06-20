@@ -51,7 +51,7 @@ export const getTarifsFromLS = (): string[] => {
   const joined = localStorage.getItem(tarifLS);
 
   if (!joined) {
-    return [carFareObj.Все];
+    return ["Все"];
   } else return joined.split("/");
 };
 

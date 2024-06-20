@@ -135,10 +135,6 @@ export const useCarsListStore = create<StoreState>()(
         );
       });
 
-      set((state) => {
-        state.page = 1;
-      });
-
       setModelsToLS(get().models);
       setBrandsToLS(get().brands);
 
@@ -168,10 +164,6 @@ export const useCarsListStore = create<StoreState>()(
         if (get().models.includes(value))
           state.models = get().models.filter((model) => model !== value);
         else state.models.push(value);
-      });
-
-      set((state) => {
-        state.page = 1;
       });
 
       setModelsToLS(get().models);

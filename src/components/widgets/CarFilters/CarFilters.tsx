@@ -1,7 +1,6 @@
 "use client";
 
 import { useCarsListStore } from "@/shared/zustand/useCarsListStore";
-import { MuiSelect } from "@/components/ui/MuiSelect/MuiSelect";
 import {
   ICarBrand,
   allCarsBrands,
@@ -10,9 +9,9 @@ import {
   filterModelsByBrand,
 } from "@/shared/types";
 import { useEffect } from "react";
+import { Selecting } from "./Selecting/Selecting";
 
 import cls from "./CarFilters.module.scss";
-import { Selecting } from "./Selecting/Selecting";
 
 export const CarFilters = () => {
   const {
