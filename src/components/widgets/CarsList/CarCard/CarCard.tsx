@@ -37,11 +37,10 @@ export const CarCard = ({ car }: Props) => {
           <div className={cls.registerNumber}>Рег. номер - {car.number}</div>
 
           <div className={cls.fare}>
-            {car.tarif.length}
             {car.tarif.length === 0 && "Тариф в каталоге"}
             {car.tarif.length > 0 && (
               <>
-                <div className={cls.fareName}>Тариф</div>
+                <div className={cls.fareName}>Тариф:</div>
                 <ul className={cls.fareValue}>
                   {car.tarif.map((item) => (
                     <li key={item}>{item}</li>

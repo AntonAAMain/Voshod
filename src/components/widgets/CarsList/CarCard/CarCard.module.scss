@@ -73,8 +73,9 @@
   position: relative;
   display: flex;
   flex-direction: row;
-  gap: 8px;
-  //   align-self: center;
+  width: max-content;
+  align-self: flex-start;
+  gap: 30px;
 }
 
 .fareName {
@@ -84,6 +85,7 @@
 .fareValue {
   font-weight: 800;
   border-bottom: 2px solid black;
+  list-style-type: none;
 }
 
 .price {

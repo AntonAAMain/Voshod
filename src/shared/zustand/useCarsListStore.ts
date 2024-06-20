@@ -71,7 +71,6 @@ export const useCarsListStore = create<StoreState>()(
         state.page = getPageFromLS();
       });
 
-      console.log(get().page);
       const url = carsListUrl(
         get().brands,
         get().models,

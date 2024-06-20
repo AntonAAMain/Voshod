@@ -15,9 +15,11 @@ export const carsListUrl = (
     models.length === 0
       ? ""
       : models.map((model) => `&model[]=${model}`).join("");
+
+  console.log("fares are - ", fares);
   const faresPath = !fares.includes(carFareObj["Все"])
     ? fares.map((fare) => `&tarif[]=${carFareObj[fare]}`).join("")
     : "";
-
+  console.log(faresPath);
   return `${startPath + brandsPath + modelsPath + faresPath}&page=${page}`;
 };
