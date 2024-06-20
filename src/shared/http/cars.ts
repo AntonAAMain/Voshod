@@ -17,7 +17,7 @@ export const carsListUrl = (
       : models.map((model) => `&model[]=${model}`).join("");
 
   console.log("fares are - ", fares);
-  const faresPath = !fares.includes(carFareObj["Все"])
+  const faresPath = !fares.includes("Все")
     ? fares.map((fare) => `&tarif[]=${carFareObj[fare]}`).join("")
     : "";
   console.log(faresPath);

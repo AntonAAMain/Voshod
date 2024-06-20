@@ -1,13 +1,9 @@
 .container {
   padding: 30px;
-  // background: #1c1c25;
-  //   border: 2px solid orange;
   width: max-content;
   display: flex;
   flex-direction: row;
   gap: 50px;
-
-  transition-property: opacity;
 }
 
 .select {

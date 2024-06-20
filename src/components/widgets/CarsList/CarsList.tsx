@@ -14,6 +14,10 @@ export const CarsList = () => {
       {cars.map((car) => (
         <CarCard key={car.id} car={car} />
       ))}
+
+      {cars.length === 0 && (
+        <div className={cls.emptyResult}>Нет машин по вашему запросу</div>
+      )}
     </div>
   );
 };

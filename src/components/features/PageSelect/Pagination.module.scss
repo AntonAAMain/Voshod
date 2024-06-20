@@ -6,6 +6,12 @@
   width: max-content;
   justify-content: space-between;
   width: 100%;
+  opacity: 1;
+  transition: 0.5s opacity;
+}
+
+.container_hidden {
+  opacity: 0;
 }
 
 .buttons {

@@ -8,23 +8,21 @@ import cls from "./Pagination.module.scss";
 
 export const Pagination = () => {
   const limit = 10;
-  const { page, pages, setPage } = useCarsListStore();
+  const { page, pages, setPage, cars, isLoading } = useCarsListStore();
 
   return (
-    <div className={cn(cls.container)}>
-      <div
-        className={cn(cls.perPage, {
-          [cls.perPage_hidden]: false,
-        })}
-      >
+    <div
+      className={cn(cls.container, {
+        [cls.container_hidden]: cars.length === 0 || isLoading,
+      })}
+    >
+      <div className={cn(cls.perPage)}>
         <div>Просмотр по 10 элементов</div>
       </div>
 
       <div className={cls.pages}>
         <div className={cls.counter}>
           {page} из {pages}
-          {/* {1 + limit * (page - 1)}-{limit * page > pages ? pages : limit * page}{" "}
-          из {pages} */}
         </div>
 
         <div className={cls.buttons}>

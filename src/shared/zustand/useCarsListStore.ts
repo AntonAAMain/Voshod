@@ -33,6 +33,7 @@ interface StoreState {
   page: number;
   pages: number;
   setPage: (direction: "left" | "right") => void;
+  setDirectPage: (value: number) => void;
 }
 
 export const useCarsListStore = create<StoreState>()(
@@ -47,6 +48,15 @@ export const useCarsListStore = create<StoreState>()(
 
     isError: false,
     isLoading: true,
+
+    setDirectPage: (value: number) => {
+      set((state) => {
+        state.page = value;
+      });
+
+      setPageToLs(value);
+      get().fetchCars();
+    },
 
     setPage: (direction: "left" | "right") => {
       set((state) => {
@@ -113,21 +123,26 @@ export const useCarsListStore = create<StoreState>()(
             state.brands = get().brands.filter((brand) => brand !== value);
           } else state.brands.push(value);
         });
-
-        set((state) => {
-          const possibleModels = get()
-            .brands.map((brand) => brandModels[brand])
-            .flat();
-
-          state.models = get().models.filter((model) =>
-            possibleModels.includes(model)
-          );
-        });
       }
+
+      set((state) => {
+        const possibleModels = get()
+          .brands.map((brand) => brandModels[brand])
+          .flat();
+
+        state.models = get().models.filter((model) =>
+          possibleModels.includes(model)
+        );
+      });
+
+      set((state) => {
+        state.page = 1;
+      });
 
       setModelsToLS(get().models);
       setBrandsToLS(get().brands);
-      get().fetchCars();
+
+      get().setDirectPage(1);
     },
 
     handleFares: (value: string) => {
@@ -138,8 +153,14 @@ export const useCarsListStore = create<StoreState>()(
         else state.fares.push(value);
       });
 
+      if (value === "Все" || get().fares.length === 0) {
+        set((state) => {
+          state.fares = ["Все"];
+        });
+      }
       setTarifsToLS(get().fares);
-      get().fetchCars();
+
+      get().setDirectPage(1);
     },
 
     handleModels: (value: string) => {
@@ -149,8 +170,13 @@ export const useCarsListStore = create<StoreState>()(
         else state.models.push(value);
       });
 
+      set((state) => {
+        state.page = 1;
+      });
+
       setModelsToLS(get().models);
-      get().fetchCars();
+
+      get().setDirectPage(1);
     },
   }))
 );
