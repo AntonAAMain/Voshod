@@ -59,19 +59,21 @@ export const useCarsListStore = create<StoreState>()(
     },
 
     setPage: (direction: "left" | "right") => {
-      set((state) => {
-        if (direction === "left" && get().page > 1) {
+      if (direction === "left" && get().page > 1) {
+        set((state) => {
           state.page -= 1;
-          setPageToLs(get().page);
-          get().fetchCars();
-        }
+        });
+        setPageToLs(get().page);
+        get().fetchCars();
+      }
 
-        if (direction === "right" && get().page < get().pages) {
+      if (direction === "right" && get().page < get().pages) {
+        set((state) => {
           state.page += 1;
-          setPageToLs(get().page);
-          get().fetchCars();
-        }
-      });
+        });
+        setPageToLs(get().page);
+        get().fetchCars();
+      }
     },
 
     fetchCars: async () => {
